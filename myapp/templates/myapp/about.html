@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> About </title>
+    <style> 
+        body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .about-section
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;    
+                text-align: justify;
+                padding: 50px; 
+                color: white;
+                max-width: 800px;
+                margin: 20px auto;
+                margin-bottom: 70px;
+            }
+
+            .about-section h1 
+            {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .about-section p 
+            {
+                font-size: 18px;
+                line-height: 1.8;
+                max-width: 700px;
+            }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <div class="about-section">
+        <h1> About Us </h1>
+        <p style="letter-spacing: 1px;"> 
+            We are Charles and Kyle, developers dedicated to creating this website 
+            to provide information on herbal medicines. Our goal is to offer reliable 
+            and accessible content that helps people understand how certain herbal 
+            remedies may support their health and well-being. While we are not medical 
+            doctors or experts, we try to share knowledge that comes from reputable 
+            sources and research. Our intention is to help individuals explore natural 
+            options and make informed choices regarding their health on their own terms.
+        </p>
+    </div>
+    
+</body>
+</html>

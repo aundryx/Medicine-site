@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+    <style>
+         body
+        {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-color: #0B192C;
+            color: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login
+        {
+            width: 100%;
+            max-width: 400px;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .login h2
+        {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            margin-left: 18px;
+        }
+
+        .login label
+        {
+            display: block;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .login input
+        {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #4d4d4d;
+            border-radius: 5px;
+            background-color: #162337;
+            color: whitesmoke;
+        }
+
+        .login button
+        {
+            width: 105%;
+            padding: 10px;
+            margin-top: 7px;
+            border: none;
+            background-color: #7C00FE;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s;
+            overflow: hidden;
+        }
+
+        .login button:hover
+        {
+            opacity: 1;
+        }
+
+        .alert {
+            display: block; 
+            padding: 10px;
+            width: 100%;
+            background-color:#7C00FE; 
+            opacity: 2;
+            color: #efefef; 
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            text-align:  center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .alert strong 
+        {
+            color: #ffffff; 
+        }
+
+        .login .register_page
+        {
+            font-size: 13px;
+            font-weight: 400;
+            color: #7C00FE;
+            text-decoration: none;
+            margin-left: auto;
+            margin-bottom: 5px;
+        }
+
+        .login .label_register
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="login">
+        {% if messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                     <strong> {{ message }} </strong> 
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2> Sign in to your account </h2>
+            {% csrf_token %}
+            <label> Username </label>
+            <input type="text" name="username">
+            <div class="label_register">
+                 <label> Password </label> 
+                 <a href="{% url 'register' %}" class="register_page"> Don't have an account yet? </a>
+            </div>
+            <input type="password" name="password">
+            <button type="submit"> Login </button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

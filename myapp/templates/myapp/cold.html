@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Cold</title>
+    <style>
+         body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+  
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/echinacea.jpg' %}" alt="echinacea">
+            <div class="description"> 
+                <h2> Echinacea </h2>
+                <p> 
+                    Echinacea has a long history of use in traditional medicine as a remedy for the common cold
+                    Research on its effectiveness has shown mixed results, with some studies suggesting it may 
+                    reduce the duration of colds when taken at the onset of symptoms. Echinacea is believed to 
+                    stimulate the immune system, promoting the production of white blood cells, which helps fight 
+                    off infections. However, the varying types of Echinacea and the specific parts used in 
+                    supplements can influence its effectiveness. While some studies show potential benefits, more
+                    research is needed to confirm its full impact on cold relief.
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/Ginger.jpg' %}" alt="ginger">
+            <div class="description"> 
+                <h2> Ginger </h2>
+                <p> 
+                    Ginger has been used for centuries to alleviate respiratory symptoms, including congestion and
+                    sore throats. Its anti-inflammatory properties help reduce throat irritation, making it a 
+                    popular remedy for cold-related discomfort. Studies have found that ginger can inhibit the 
+                    inflammatory response and improve immune function, which may help shorten the duration of cold 
+                    symptoms
+
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/elderberry.jpg' %}" alt="elderberry">
+            <div class="description"> 
+                <h2> Elderberry </h2>
+                <p>
+                    Elderberry has garnered significant attention for its potential to reduce the severity and duration 
+                    of colds and flu-like symptoms. The berries are rich in antioxidants, which help combat oxidative 
+                    stress and inflammation associated with respiratory infections. Studies have shown that elderberry 
+                    may help block the replication of viruses and support immune function, potentially reducing symptoms 
+                    like coughing and nasal congestion
+                </p>
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+</html>

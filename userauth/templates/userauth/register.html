@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Register </title>
+    <style> 
+        body
+        {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-color: #0B192C;
+            color: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register
+        {
+            width: 100%;
+            max-width: 400px;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .register h2
+        {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            margin-left: 18px;
+        }
+
+        .register label
+        {
+            display: block;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .register input
+        {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #4d4d4d;
+            border-radius: 5px;
+            background-color: #162337;
+            color: whitesmoke;
+        }
+
+        .register button
+        {
+            width: 105%;
+            padding: 10px;
+            margin-top: 7px;
+            border: none;
+            background-color: #7C00FE;
+            color: whitesmoke;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s;
+            overflow: hidden;
+        }
+
+        .register button:hover
+        {
+            opacity: 1;
+        }
+
+        .alert {
+            display: block;
+            padding: 10px;
+            width: 100%;
+            background-color:#7C00FE; 
+            opacity: 2;
+            color: #efefef; 
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .alert strong 
+        {
+            color: #ffffff; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="register">
+        {% if messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                    <strong> {{ message }} </strong> 
+                {% endfor %}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        <form action="{% url 'register' %}" method=POST>
+            {% csrf_token %}
+            <h2> Register an account </h2>
+            {{ form.as_p }}
+           
+            <button type="submit"> Register </button>
+        </form>
+    </div>
+</body>
+</html>

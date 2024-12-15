@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Blood Pressure</title>
+    <style>
+            body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/ampalaya.jpg' %}" alt="Bitter melon">
+            <div class="description"> 
+                <h2> Bitter melon </h2>
+                <p>
+                    Ampalaya, commonly referred to as bitter melon, is a well-known herbal remedy in the Philippines 
+                    used for managing high blood pressure (hypertension). This plant has been utilized in traditional 
+                    medicine for centuries due to its potential health benefits, particularly in addressing metabolic 
+                    conditions like hypertension. The efficacy of Ampalaya in lowering blood pressure is largely attributed 
+                    to its bioactive compounds, such as charantin, polypeptides, and vicine, which contribute to improved 
+                    insulin sensitivity and reduced glucose levels
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/garlic.jpg' %}" alt="garlic">
+            <div class="description"> 
+                <h2> Garlic </h2>
+                <p>
+                    Garlic, also known as bawang, has long been a part of traditional medicine in the Philippines, particularly 
+                    for managing high blood pressure. The active compound allicin found in garlic is widely recognized for its 
+                    beneficial effects on cardiovascular health. Allicin helps relax blood vessels, reducing the resistance to 
+                    blood flow, which contributes to lower blood pressure. Research has shown that garlic supplementation can 
+                    lead to significant reductions in both systolic and diastolic blood pressure, comparable to some pharmaceutical 
+                    treatments. Furthermore, garlic's antioxidant properties help combat oxidative stress and inflammation, both of 
+                    which are major contributors to hypertension
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/banaba.jpg' %}" alt="banaba leaves">
+            <div class="description"> 
+                <h2> Banaba leaves </h2>
+                <p>
+                    Banaba leaves, derived from the Lagerstroemia speciosa plant, have long been used in traditional medicine, particularly 
+                    in the Philippines, as a remedy for various health issues, including high blood pressure and diabetes. The leaves contain 
+                    corosolic acid, a compound known for its beneficial effects on insulin sensitivity and glucose metabolism. Corosolic acid 
+                    helps improve blood sugar control, which in turn supports better cardiovascular health and may contribute to lowering high 
+                    blood pressure
+                </p>
+            </div>
+        </div>
+        
+    </section>
+    
+</body>
+</html>

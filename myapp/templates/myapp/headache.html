@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headache</title>
+    <style>
+        body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+         
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/peppermint.jpg' %}" alt="peppermint">
+            <div class="description"> 
+                <h2> Peppermint </h2>
+                <p>
+                    Peppermint has long been used for its soothing and pain-relieving properties, especially for 
+                    tension headaches. Its menthol content helps relax muscles and blood circulation, which 
+                    can reduce headache intensity. According to a study published in Headache: The Journal of Head and 
+                    Face Pain, peppermint oil has shown efficacy in reducing headache severity when applied to the temples 
+                    or inhaled
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/lavender.jpg' %}" alt="Lavender">
+            <div class="description"> 
+                <h2> Lavender </h2>
+                <p>
+                    Lavender is known for its calming effects and has been traditionally used to relieve headaches, particularly 
+                    those caused by stress. A study published in Cephalalgia found that inhaling lavender oil helped reduce headache 
+                    frequency and intensity, particularly tension headaches
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/feverfew.jpg' %}" alt="feverfew">
+            <div class="description"> 
+                <h2> Feverfew </h2>
+                <p>
+                    Feverfew is a popular herb used to prevent and manage migraines. Research suggests that feverfew can reduce the 
+                    frequency and severity of migraines due to its anti-inflammatory properties. A systematic review in The Cochrane 
+                    Database of Systematic Reviews supports its use in preventing migraines and reducing headache discomfort
+                </p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

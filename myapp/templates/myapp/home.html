@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <title> Home </title>
+    <style>
+        body
+        {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-color: #0B192C;
+            color: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header 
+        {
+            top: 0;
+            position: fixed;
+            left: 0;
+            padding: 20px 100px;
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .navbar
+        {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: 1000px;
+        }
+
+        .navbar a
+        {
+            color: white;
+            position: relative;
+            font-size: 17px;
+            text-decoration: none;
+            margin-left: 40px;
+        }
+
+        .navbar a::before
+        {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: .3s ease-in-out;
+        }
+
+        .navbar a:hover::before
+        {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 17px;
+            color: #ffffff;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            color: white;
+            background-color: #5cb85c;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #4cae4c;
+        }
+       
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'cold' %}">
+                <img src="{% static 'myapp/commonCold.png' %}" alt="Common Cold">
+            </a>
+            <div class="card-content">
+                <h3>Common Cold</h3>
+                <p>Natural remedies for common colds</p>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'headache' %}">
+                <img src="{% static 'myapp/headache.png' %}" alt="Headache">
+            </a>
+            <div class="card-content">
+                <h3>Headache</h3>
+                <p>Natural remedies for Headache</p>
+               
+            </div>
+       </div>
+
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'cough' %}">
+                <img src="{% static 'myapp/cough.png' %}" alt="Cough">
+            </a>
+            <div class="card-content">
+                <h3>Cough</h3>
+                <p>Natural remedies for Cough</p>
+                
+            </div>
+        </div>
+
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'fever' %}">
+                <img src="{% static 'myapp/fever.png' %}" alt="Fever">
+            </a>
+            <div class="card-content">
+                <h3>Fever</h3>
+                <p>Natural remedies for Fever</p>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'highblood' %}">
+                <img src="{% static 'myapp/highBlood.png' %}" alt="High Blood">
+            </a>
+            <div class="card-content">
+                <h3>High Blood Pressure</h3>
+                <p>Natural remedies for High Blood Pressure</p>
+               
+            </div>
+        </div>
+
+        <div class="card">
+            {% load static %}
+            <a href="{% url 'hairloss' %}">
+                <img src="{% static 'myapp/hair loss.png' %}" alt="High Blood">
+            </a>
+            <div class="card-content">
+                <h3>Hair Loss</h3>
+                <p>Natural remedies for Hair Loss</p>
+               
+            </div>
+        </div>
+
+        
+
+       
+
+     
+
+       
+    </div>
+    
+</body>
+</html>

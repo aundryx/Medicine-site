@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fever</title>
+    <style>
+         body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+         
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/sambong.jpg' %}" alt="Blumea balsamifera">
+            <div class="description"> 
+                <h2> Sambong (Blumea balsamifera) </h2>
+                <p>
+                    Blumea balsafimera, also known as sambong, is a native herb in the Philippines, is well-known for  
+                    its diuretic properties, for its diuretic which play a significant role in managing fever.  
+                    The plant contains active compounds such as flavonoids, volatile oils, and alkaloids, which are  
+                    believed to help reduce fever by promoting the excretion of excess fluids and toxins from the body.  
+                    By facilitating the removal of toxins, sambong supports the body's natural detoxification process,  
+                    reducing inflammation that can contribute to fever
+                </p>
+                <p>
+                    Numerous studies and traditional practices have recognized sambong's role in treating fevers. 
+                    According to the Philippine Journal of Science, sambong's active compounds have been shown to 
+                    exert anti-inflammatory and antipyretic (fever-reducing) effects
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/guava.jpg' %}" alt="guava leaves">
+            <div class="description"> 
+                <h2> Guava leaves </h2>
+                <p>
+                    Guava leaves have long been used in the Philippines as a natural remedy for fever, primarily due 
+                    to their antibacterial and anti-inflammatory properties. The leaves contain compounds like flavonoids, 
+                    tannins, and essential oils, which contribute to their medicinal effects. Brewed into a tea, guava 
+                    leaves help reduce fever by promoting sweat, thereby assisting the body in cooling down and eliminating 
+                    toxins associated with infections. Additionally, the leaves have been traditionally used to support 
+                    recovery from colds, respiratory infections, and gastrointestinal issues, which often accompany fever
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/lemonBalm.jpg' %}" alt="Lemon balm">
+            <div class="description"> 
+                <h2> Lemon balm </h2>
+                <p> Lemon balm or Melissa officinalis has been used traditionally for its antiviral and antimicrobial properties, 
+                    making it a popular herb for treating mild fevers, especially those caused by viral infections like colds and flu. 
+                    Its active compounds, including polyphenols and essential oils, help promote sweating (diaphoretic action), which 
+                    can aid in reducing body temperature. A study published in Phytomedicine highlighted that lemon balm can help reduce 
+                    fever by enhancing the body's ability to regulate temperature through increased sweating. Additionally, its antiviral 
+                    properties contribute to its effectiveness in managing viral infections that commonly cause fevers
+                </p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

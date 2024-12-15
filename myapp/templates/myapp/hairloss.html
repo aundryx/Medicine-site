@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Loss</title>
+    <style>
+            body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+        
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/aloe_vera.jpg' %}" alt="Aloe Vera">
+            <div class="description"> 
+                <h2> Aloe Vera </h2>
+                <p>
+                    Aloe vera has long been regarded as a natural remedy for skin and hair care. In the Philippines, it 
+                    is commonly used to treat various scalp conditions such as dryness, dandruff, and itching, all of which 
+                    contribute to hair loss. The plant's gel contains vitamins A, C, and E, as well as enzymes that promote 
+                    better scalp health by reducing oil buildup, soothing irritation, and stimulating hair follicles. Aloe vera 
+                    also has moisturizing properties that improve hydration and prevent dryness, which is often a key factor in 
+                    preventing hair loss
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/coconut_oil.jpg' %}" alt="coconut oik">
+            <div class="description"> 
+                <h2> Coconut Oil </h2>
+                <p>
+                    Coconut oil is a staple in Filipino hair care, praised for its moisturizing and nourishing properties. Rich 
+                    in fatty acids such as lauric acid, coconut oil penetrates deep into the hair shaft and scalp, reducing dryness 
+                    and improving scalp health. This helps to strengthen hair, prevent breakage, and minimize hair loss. Studies have 
+                    shown that coconut oil can also reduce protein loss in hair, making it an effective natural treatment for hair 
+                    thinning and promoting overall hair strength
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/calamansi.jpg' %}" alt="calamansi">
+            <div class="description"> 
+                <h2> Calamansi </h2>
+                <p>
+                    Calamansi, with its astringent and clarifying properties, is a popular ingredient in Filipino hair care routines. 
+                    Its acidic nature helps to control excess oil production on the scalp, which, when left unchecked, can contribute 
+                    to dandruff and hair thinning. By reducing oil buildup and maintaining a healthy pH balance, calamansi creates a 
+                    clean scalp environment, developing optimal conditions for healthy hair growth. Regular use of calamansi can also 
+                    help reduce dandruff, which is a common cause of hair loss
+                </p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

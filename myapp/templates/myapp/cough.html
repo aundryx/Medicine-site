@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cough</title>
+    <style>
+         body
+            {
+                max-width: 1200px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                background-color: #0B192C;
+                color: whitesmoke;
+                font-family: 'Open Sans', sans-serif;
+                display: flex;
+               
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header 
+            {
+                top: 0;
+                position: fixed;
+                left: 0;
+                padding: 20px 100px;
+                width: 100%;
+                background-color: transparent;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+
+            .navbar
+            {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-left: 1000px;
+            }
+
+            .navbar a
+            {
+                color: white;
+                position: relative;
+                font-size: 17px;
+                text-decoration: none;
+                margin-left: 40px;
+            }
+
+            .navbar a::before
+            {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: white;
+                transition: .3s ease-in-out;
+            }
+
+            .navbar a:hover::before
+            {
+                width: 100%;
+            }
+
+            .disease 
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .herbs 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                margin-top: 50px;
+                width: 100%; 
+                max-width: 1200px; 
+                background-color: transparent;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 40px;
+            
+            }
+
+           
+            .herbs img 
+            {
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                border: 2px solid rgb(217, 204, 240);
+                transition: filter 0.5s ease-in-out;
+                object-fit: cover;
+            }
+
+           
+            .herbs .description 
+            {
+                padding: 20px;
+                margin: 0 20px;
+                max-width: 600px;
+                text-align: justify;
+            }
+
+            .herbs .description h2 
+            {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: rgb(255, 255, 255); 
+            }
+
+            .herbs .description p 
+            {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #ffffff; 
+            }
+
+            
+            .herbs:nth-child(even) 
+            {
+                flex-direction: row-reverse;
+                margin-left: 100px;
+            }
+
+            .herbs:nth-child(odd) 
+            {
+                flex-direction: row;
+                margin-right: 100px;
+            }
+            
+
+            
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'home' %}"> Home </a>
+            <a href="{% url 'about' %}"> About </a>
+            <a href="{% url 'contact' %}"> Contact </a>
+        </nav>
+    </header>
+
+    <section class="disease">
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/gingerr.jpg' %}" alt="Ginger">
+            <div class="description"> 
+                <h2> Ginger </h2>
+                <p>
+                    Ginger is another well-known herbal remedy commonly used to manage cough symptoms. 
+                    Its anti-inflammatory and mucolytic properties help reduce throat irritation and 
+                    mucus production, making it effective for relieving persistent coughing. According 
+                    to a meta-analysis published in The Cochrane Database of Systematic Reviews, ginger 
+                    can be beneficial in reducing coughing and improving overall respiratory health 
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/licoriceRoot.jpg' %}" alt="Licorice Root">
+            <div class="description"> 
+                <h2> Licorice Root </h2>
+                <p>
+                    Licorice root contains compounds that help thin mucus and soothe the respiratory tract. 
+                    It has been traditionally used to relieve coughing and inflammation in the throat. 
+                    Research published in Journal of Ethnopharmacology suggests licorice root can help reduce 
+                    coughing and helps mucus clearance 
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/mallowRoot.jpg' %}" alt="marshmallow root">
+            <div class="description"> 
+                <h2> Marshmallow Root </h2>
+                <p>
+                    Marshmallow root has long been used for its soothing properties, particularly for dry, 
+                    irritating coughs. It contains mucilage, a gel-like substance that coats the throat, 
+                    reducing irritation and promoting a smoother respiratory tract. Studies, including those 
+                    published in European Journal of Integrative Medicine, show that marshmallow root 
+                    effectively reduces coughing and throat discomfort
+                </p>
+            </div>
+        </div>
+
+        <div class="herbs">
+            {% load static %}
+            <img src="{% static 'myapp/thyme.jpeg' %}" alt="thyme">
+            <div class="description"> 
+                <h2> Thyme </h2>
+                <p>
+                    Thyme is widely recognized for its soothing properties, especially in treating coughs caused 
+                    by mucus buildup and throat irritation. The active compounds in thyme, particularly thymol, 
+                    exhibit antimicrobial and anti-inflammatory effects, reducing throat discomfort and easing 
+                    coughing. A systematic review published in Phytotherapy Research found that thyme-based 
+                    formulations, such as syrups, are effective in reducing both the frequency and severity 
+                    of coughs, especially in cases of upper respiratory infections
+                </p>
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+</html>
